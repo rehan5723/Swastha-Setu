@@ -1,0 +1,27 @@
+import React, { useState } from 'react'
+import { motion } from 'framer-motion'
+import { Bell, Check, Eye, Globe2, Lock, Moon, Save, ShieldCheck, SlidersHorizontal } from 'lucide-react'
+import Card from '../components/common/Card'
+import Button from '../components/common/Button'
+import { useToast } from '../components/common/Toast'
+
+function SettingToggle({ icon: Icon, title, description, checked, onChange }) {
+  return <label className="flex items-center justify-between gap-4 p-4 rounded-xl border border-surface-200 hover:bg-surface-50 cursor-pointer"><div className="flex items-start gap-3"><Icon size={17} className="text-brand-500 mt-0.5 flex-shrink-0" /><div><p className="text-[13px] font-semibold text-ink-900">{title}</p><p className="text-[12px] text-ink-500 mt-0.5 leading-relaxed">{description}</p></div></div><span className={`relative w-10 h-6 rounded-full transition-colors flex-shrink-0 ${checked ? 'bg-brand-500' : 'bg-surface-300'}`}><input type="checkbox" checked={checked} onChange={onChange} className="sr-only" /><span className={`absolute top-1 w-4 h-4 rounded-full bg-white shadow-sm transition-transform ${checked ? 'translate-x-5' : 'translate-x-1'}`} /></span></label>
+}
+
+export default function Settings() {
+  const [settings, setSettings] = useState({ emailUpdates: true, analysisAlerts: true, reminders: false, compactView: false, showHints: true })
+  const [language, setLanguage] = useState('English')
+  const { toast } = useToast()
+
+  function toggle(name) {
+    setSettings((current) => ({ ...current, [name]: !current[name] }))
+  }
+
+  function saveSettings(event) {
+    event.preventDefault()
+    toast({ type: 'success', title: 'Settings saved', message: 'Your preferences have been updated for this session.' })
+  }
+
+  return <motion.div className="p-6 lg:p-8 max-w-4xl mx-auto" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}><div className="mb-8 flex items-start gap-3"><div className="w-11 h-11 rounded-xl bg-surface-100 border border-surface-200 flex items-center justify-center flex-shrink-0"><SlidersHorizontal size={21} className="text-ink-600" /></div><div><h1 className="text-[26px] font-extrabold text-ink-900 leading-tight">Settings</h1><p className="text-[14px] text-ink-500 mt-1">Control notifications, display preferences, and privacy choices.</p></div></div><form onSubmit={saveSettings} className="flex flex-col gap-6"><Card variant="bordered"><div className="flex items-center gap-2 mb-5"><Bell size={17} className="text-brand-500" /><div><h2 className="text-[16px] font-bold text-ink-900">Notifications</h2><p className="text-[12px] text-ink-500 mt-1">Choose what you want to hear about.</p></div></div><div className="flex flex-col gap-3"><SettingToggle icon={Bell} title="Analysis updates" description="Receive a notification when an analysis is ready." checked={settings.analysisAlerts} onChange={() => toggle('analysisAlerts')} /><SettingToggle icon={Globe2} title="Email updates" description="Receive occasional product and healthcare resource updates." checked={settings.emailUpdates} onChange={() => toggle('emailUpdates')} /><SettingToggle icon={Check} title="Follow-up reminders" description="Get reminders to review suggested next steps." checked={settings.reminders} onChange={() => toggle('reminders')} /></div></Card><Card variant="bordered"><div className="flex items-center gap-2 mb-5"><Eye size={17} className="text-brand-500" /><div><h2 className="text-[16px] font-bold text-ink-900">Display</h2><p className="text-[12px] text-ink-500 mt-1">Adjust how the application feels to use.</p></div></div><div className="flex flex-col gap-3"><SettingToggle icon={SlidersHorizontal} title="Compact view" description="Use tighter spacing in lists and result tables." checked={settings.compactView} onChange={() => toggle('compactView')} /><SettingToggle icon={Eye} title="Helpful hints" description="Show contextual guidance on analysis and scheme pages." checked={settings.showHints} onChange={() => toggle('showHints')} /><div className="flex items-center justify-between gap-4 p-4 rounded-xl border border-surface-200"><div className="flex items-start gap-3"><Globe2 size={17} className="text-brand-500 mt-0.5" /><div><p className="text-[13px] font-semibold text-ink-900">Language</p><p className="text-[12px] text-ink-500 mt-0.5">Choose your preferred interface language.</p></div></div><select value={language} onChange={(event) => setLanguage(event.target.value)} className="h-9 px-3 rounded-lg border border-surface-200 bg-white text-[12px] text-ink-700 focus:outline-none focus:border-brand-500"><option>English</option><option>Hindi</option><option>Marathi</option></select></div></div></Card><Card variant="ghost"><div className="flex items-start gap-3"><Lock size={17} className="text-brand-500 mt-0.5 flex-shrink-0" /><div><h2 className="text-[14px] font-bold text-ink-900">Privacy and security</h2><p className="text-[12px] text-ink-500 leading-relaxed mt-1">This prototype does not yet persist settings to a user account. Production authentication, encrypted storage, and data deletion controls should be connected before launch.</p></div></div></Card><div className="flex justify-end"><Button type="submit" leftIcon={<Save size={16} />}>Save settings</Button></div></form></motion.div>
+}

@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="bgRight" x1="0" x2="1">
+      <stop offset="0" stop-color="#081229" />
+      <stop offset="1" stop-color="#001428" />
+    </linearGradient>
+    <radialGradient id="glowA" cx="70%" cy="30%" r="60%">
+      <stop offset="0" stop-color="#0F52BA" stop-opacity="0.45" />
+      <stop offset="1" stop-color="#0F52BA" stop-opacity="0" />
+    </radialGradient>
+    <style>
+      .heading { font-family: Inter, Roboto, Arial; font-weight:700; fill:#071433 }
+      .sub { font-family: Inter, Roboto, Arial; fill:#516B8A }
+      .label { font-family: Inter, Roboto, Arial; fill:#334155; font-size:14px }
+    </style>
+  </defs>
+
+  <!-- Background split 60/40 -->
+  <rect width="1152" height="1080" fill="#FFFFFF" />
+  <rect x="1152" width="768" height="1080" fill="url(#bgRight)" />
+
+  <!-- Left card -->
+  <g transform="translate(120,120)">
+    <rect x="0" y="0" width="912" height="840" rx="16" fill="#FFFFFF" stroke="#EEF2F7" />
+
+    <!-- Top brand -->
+    <image href="../design/logo.svg" x="36" y="32" width="220" height="80" />
+    <text x="36" y="150" class="heading" font-size="34">Welcome back</text>
+    <text x="36" y="184" class="sub" font-size="16">Sign in to continue to SwasthaSetu</text>
+
+    <!-- Form area -->
+    <g transform="translate(36,220)">
+      <text class="label" x="0" y="0">Mobile number or email</text>
+      <!-- input with +91 selector -->
+      <rect x="0" y="12" width="840" height="56" rx="10" fill="#FBFDFF" stroke="#E6EEF8" />
+      <rect x="0" y="12" width="120" height="56" rx="10" fill="#F1F6FF" stroke="#E3EEFF" />
+      <text x="18" y="50" font-family="Inter, Roboto" font-size="16" fill="#0F52BA">+91 ▾</text>
+      <text x="144" y="50" font-family="Inter, Roboto" font-size="16" fill="#102A43">Enter mobile or email</text>
+
+      <!-- password -->
+      <text class="label" x="0" y="96">Password</text>
+      <rect x="0" y="108" width="840" height="56" rx="10" fill="#FBFDFF" stroke="#E6EEF8" />
+      <text x="18" y="146" font-family="Inter, Roboto" font-size="16" fill="#9FB0C8">••••••••</text>
+
+      <!-- Forgot + CTA -->
+      <text x="0" y="190" font-family="Inter, Roboto" font-size="14" fill="#0F52BA">Forgot password?</text>
+      <rect x="0" y="220" width="840" height="60" rx="12" fill="#0F52BA" />
+      <text x="420" y="258" font-family="Inter, Roboto" font-size="18" fill="#FFFFFF" text-anchor="middle" font-weight="700">Sign In</text>
+
+      <!-- Or divider -->
+      <g transform="translate(0,304)">
+        <line x1="0" x2="360" y1="12" y2="12" stroke="#E6EEF8" />
+        <text x="420" y="18" font-family="Inter, Roboto" font-size="14" fill="#9FB0C8" text-anchor="middle">Or continue with</text>
+        <line x1="480" x2="840" y1="12" y2="12" stroke="#E6EEF8" />
+      </g>
+
+      <!-- Register link -->
+      <text x="0" y="380" font-family="Inter, Roboto" font-size="14" fill="#334155">Don't have an account? <tspan fill="#0F52BA">Register</tspan></text>
+    </g>
+  </g>
+
+  <!-- Right panel glowing tech artwork -->
+  <g transform="translate(1152,0)">
+    <rect width="768" height="1080" fill="url(#bgRight)" />
+    <rect width="768" height="1080" fill="url(#glowA)" />
+
+    <!-- Abstract digital bridge -->
+    <g transform="translate(60,160)">
+      <path d="M40,420 C120,260 340,200 640,420" fill="none" stroke="#64B5FF" stroke-width="4" stroke-linecap="round" opacity="0.95" />
+      <g stroke="#9FD3FF" stroke-width="2" fill="none" opacity="0.9">
+        <path d="M48,404 C128,244 348,204 648,404" stroke-opacity="0.25" />
+        <path d="M68,436 C160,300 380,260 688,436" stroke-opacity="0.18" />
+      </g>
+
+      <!-- EKG wave -->
+      <polyline points="40,220 80,220 100,180 140,260 180,200 220,240 260,220 300,220" fill="none" stroke="#00E2FF" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" opacity="0.95" />
+
+      <!-- Skin scanner mesh (simple triangles) -->
+      <g transform="translate(520,60) scale(0.65)" opacity="0.9">
+        <polygon points="0,0 60,0 30,52" fill="#0F52BA" opacity="0.06" />
+        <polygon points="40,48 100,28 64,80" fill="#64B5FF" opacity="0.06" />
+      </g>
+
+      <!-- Government badge (Ayushman Bharat stylized) -->
+      <g transform="translate(60,36)">
+        <circle cx="60" cy="60" r="48" fill="#0F52BA" opacity="0.98" />
+        <text x="60" y="68" font-family="Inter, Roboto" font-size="28" fill="#FFF" text-anchor="middle" font-weight="700">AB</text>
+      </g>
+
+      <!-- Connecting glow lines -->
+      <path d="M140,260 L220,200" stroke="#8EE7FF" stroke-width="2" stroke-linecap="round" opacity="0.6" />
+      <path d="M360,300 L420,220" stroke="#8EE7FF" stroke-width="2" stroke-linecap="round" opacity="0.6" />
+
+      <!-- Caption -->
+      <text x="48" y="560" font-family="Inter, Roboto" font-size="18" fill="#B6DFF9">AI diagnostics linking EKG, OCR lab reports and image scanners</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="200" viewBox="0 0 600 200">
+  <defs>
+    <linearGradient id="g1" x1="0" x2="1">
+      <stop offset="0" stop-color="#0F52BA" />
+      <stop offset="1" stop-color="#3AA0FF" />
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Brand mark: stylized bridge + medical cross -->
+  <g transform="translate(40,20)">
+    <!-- Bridge arches -->
+    <path d="M20,130 Q120,20 220,130" fill="none" stroke="url(#g1)" stroke-width="12" stroke-linecap="round" filter="url(#glow)" />
+    <path d="M60,130 Q120,60 180,130" fill="none" stroke="#0F52BA" stroke-width="8" stroke-linecap="round" />
+
+    <!-- Bridge pillars -->
+    <rect x="48" y="130" width="12" height="24" rx="2" fill="#0F52BA" />
+    <rect x="132" y="130" width="12" height="24" rx="2" fill="#0F52BA" />
+
+    <!-- Medical cross integrated into central pillar -->
+    <g transform="translate(100,80)">
+      <rect x="-14" y="-36" width="28" height="72" rx="4" fill="#FFFFFF" />
+      <rect x="-36" y="-14" width="72" height="28" rx="4" fill="#FFFFFF" />
+      <rect x="-14" y="-36" width="28" height="72" rx="4" fill="#0F52BA" opacity="0.95" />
+      <rect x="-36" y="-14" width="72" height="28" rx="4" fill="#0F52BA" opacity="0.95" />
+    </g>
+
+    <!-- Wordmark -->
+    <text x="260" y="120" font-family="Inter, Roboto, Arial" font-size="42" fill="#0B2B5A" font-weight="700">SwasthaSetu</text>
+    <text x="260" y="152" font-family="Inter, Roboto, Arial" font-size="16" fill="#516B8A">AI-powered Indian healthcare platform</text>
+  </g>
+</svg>

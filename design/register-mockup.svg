@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="bgRightR" x1="0" x2="1">
+      <stop offset="0" stop-color="#071426" />
+      <stop offset="1" stop-color="#001323" />
+    </linearGradient>
+    <radialGradient id="glowB" cx="65%" cy="28%" r="60%">
+      <stop offset="0" stop-color="#0F52BA" stop-opacity="0.5" />
+      <stop offset="1" stop-color="#0F52BA" stop-opacity="0" />
+    </radialGradient>
+    <style>
+      .heading { font-family: Inter, Roboto, Arial; font-weight:700; fill:#071433 }
+      .sub { font-family: Inter, Roboto, Arial; fill:#516B8A }
+      .label { font-family: Inter, Roboto, Arial; fill:#334155; font-size:14px }
+    </style>
+  </defs>
+
+  <!-- Background split 60/40 -->
+  <rect width="1152" height="1080" fill="#FFFFFF" />
+  <rect x="1152" width="768" height="1080" fill="url(#bgRightR)" />
+
+  <!-- Left registration card -->
+  <g transform="translate(120,100)">
+    <rect x="0" y="0" width="912" height="920" rx="16" fill="#FFFFFF" stroke="#EEF2F7" />
+    <image href="../design/logo.svg" x="36" y="32" width="220" height="80" />
+    <text x="36" y="160" class="heading" font-size="34">Create your account</text>
+    <text x="36" y="194" class="sub" font-size="16">Join SwasthaSetu for smarter care</text>
+
+    <g transform="translate(36,240)">
+      <text class="label" x="0" y="0">Full name</text>
+      <rect x="0" y="12" width="840" height="56" rx="10" fill="#FBFDFF" stroke="#E6EEF8" />
+      <text class="label" x="0" y="96">Mobile number</text>
+      <rect x="0" y="108" width="840" height="56" rx="10" fill="#FBFDFF" stroke="#E6EEF8" />
+      <text class="label" x="0" y="192">Password</text>
+      <rect x="0" y="204" width="840" height="56" rx="10" fill="#FBFDFF" stroke="#E6EEF8" />
+
+      <rect x="0" y="284" width="840" height="60" rx="12" fill="#0F52BA" />
+      <text x="420" y="322" font-family="Inter, Roboto" font-size="18" fill="#FFFFFF" text-anchor="middle" font-weight="700">Create Account</text>
+
+      <text x="0" y="380" font-family="Inter, Roboto" font-size="14" fill="#334155">By creating an account you agree to our <tspan fill="#0F52BA">Terms</tspan></text>
+    </g>
+  </g>
+
+  <!-- Right glowing artwork -->
+  <g transform="translate(1152,0)">
+    <rect width="768" height="1080" fill="url(#bgRightR)" />
+    <rect width="768" height="1080" fill="url(#glowB)" />
+
+    <g transform="translate(64,160)">
+      <!-- cluster of icons and mesh -->
+      <circle cx="560" cy="220" r="64" fill="#0F52BA" opacity="0.95" />
+      <text x="560" y="244" font-family="Inter, Roboto" font-size="28" fill="#FFF" text-anchor="middle" font-weight="700">AB</text>
+
+      <polyline points="40,420 120,300 240,360 360,300 520,380" fill="none" stroke="#00E2FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.95" />
+
+      <text x="48" y="560" font-family="Inter, Roboto" font-size="18" fill="#B6DFF9">Secure, certified schemes + AI diagnostics</text>
+    </g>
+  </g>
+</svg>

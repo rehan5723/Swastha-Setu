@@ -1,0 +1,23 @@
+{
+  "name": "backend",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js",
+    "test": "node --test test/api.test.js",
+    "seed:schemes": "node src/seed.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^17.4.2",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.3",
+    "multer": "^2.3.0",
+    "pg": "^8.23.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}

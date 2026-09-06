@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base reset ─────────────────────────────────────── */
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: #f8fafc;
+    color: #0b1e3d;
+  }
+
+  ::selection {
+    background: rgba(19, 86, 216, 0.18);
+    color: #0b1e3d;
+  }
+}
+
+/* ── Global component utilities ─────────────────────── */
+@layer utilities {
+  /* Text gradients */
+  .brand-gradient {
+    background: linear-gradient(135deg, #1356d8, #0ea5e9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .accent-gradient {
+    background: linear-gradient(90deg, #00e2ff, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Scrollbar styling */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 2px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+
+  /* Glassmorphism surface */
+  .glass {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  /* Focus ring */
+  .focus-ring {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(19, 86, 216, 0.18);
+  }
+}
+
+/* ── Custom keyframes ────────────────────────────────── */
+@keyframes blobFloat {
+  from { transform: translateY(0) scale(1); }
+  to   { transform: translateY(30px) scale(1.08); }
+}
+.animate-blob {
+  animation: blobFloat 7s ease-in-out infinite alternate;
+}
+.animate-blob-delayed {
+  animation: blobFloat 7s ease-in-out 2s infinite alternate;
+}
+
+@keyframes ecgScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-40px); }
+}
+.animate-ecg {
+  animation: ecgScroll 2.2s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.animate-spin-fast {
+  animation: spin 0.7s linear infinite;
+}
+
+/* Decorative grid background */
+.grid-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 36px 36px;
+  pointer-events: none;
+}
+
+/* Sidebar transition */
+.sidebar-transition {
+  transition: width 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
